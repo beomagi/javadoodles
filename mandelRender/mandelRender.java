@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package mandelRender;
 
 import javax.imageio.ImageIO;
@@ -103,7 +99,7 @@ public class mandelRender {
 
     public static void main(String[] args) {
         System.out.println("MandelTest V1");
-        // key checks - -w width -h height
+        // get all parameters
         String width = getParam(args, "-w");
         String height = getParam(args, "-h");
         String offsetX = getParam(args, "-x");
@@ -113,6 +109,7 @@ public class mandelRender {
         String iterstr = getParam(args, "-m");
         String numthreadsstr = getParam(args, "-t");
         String chunksizestr = getParam(args, "-c");
+        // check parameters and set defaults
         if (width == "" || height == "") {
             System.out.println(
                     "Usage: MandelTest -w <width> -h <height> [-x <offsetX> -y <offsetY> -z <zoom> -o <filename(png)> -m <Z-Iterations> -t <threads> -c <chunkSize>]");
