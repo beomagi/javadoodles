@@ -1,8 +1,8 @@
 # javadoodles
 
-#Stuff
+# Stuff
 
-##mandelRender:
+## mandelRender:
   running example:
 ```
     java mandelRender.java -w 2560 -h 1600
