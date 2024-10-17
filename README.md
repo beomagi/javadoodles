@@ -25,3 +25,6 @@ MandelTest V1
 Width:800 Height:600 offsetX:-0.71 offsetY:-0.25 zoom:200.0 filename:test.png Z-Iterations:1900.0 Threads:16 chunkSize:693
 Processing time: 0.247811s
 ```
+Creates:
+![test](https://github.com/user-attachments/assets/8fa5d845-7231-4bee-a00d-b5f68b9c2a00)
+
