@@ -153,7 +153,6 @@ public class mandelRender {
         System.out.println("Width:" + width + " Height:" + height + " offsetX:" + offsetXdouble + " offsetY:"
                 + offsetYdouble + " zoom:" + zoomdouble + " filename:" + outfile + " Z-Iterations:" + maxiter
                 + " Threads:" + numthreads + " chunkSize:" + chunkSize);
-        numthreads = Runtime.getRuntime().availableProcessors();
         long startProcessTime = System.nanoTime();
         printMandel(wint, hint, offsetXdouble, offsetYdouble, zoomdouble, outfile, maxiter, numthreads, chunkSize);
         long endProcessTime = System.nanoTime();
