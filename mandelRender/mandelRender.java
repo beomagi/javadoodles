@@ -1,21 +1,87 @@
 package mandelRender;
 
-import javax.imageio.ImageIO;
+import java.awt.Image;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 /**
  *
  * @author Ryan Cipriani
  */
+
 public class mandelRender {
     /**
      * @param args the command line arguments
      */
 
+
+    public static void showpng(String filename) {
+        // create scaled preview window of the created image
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Preview - Press ESC to close");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            int maxwidth = 800;
+            int maxheight = 600;
+            int winwidth = 800;
+            int winheight = 600;
+            try {
+                BufferedImage originalImage = ImageIO.read(new java.io.File(filename));
+                //get dimentions of image
+                int owidth = originalImage.getWidth();
+                int oheight = originalImage.getHeight();
+                double winscale = 1;
+                if (maxwidth < owidth*winscale) {
+                    winscale = (double)maxwidth / (double)owidth;
+                }
+                if (maxheight < oheight*winscale) {
+                    winscale = (double)maxheight / (double)oheight;
+                }
+                winwidth = (int)(owidth*winscale);
+                winheight = (int)(oheight*winscale);
+                System.out.println("Image size: " + owidth + "x" + oheight + " Window size: " + winwidth + "x" + winheight);
+
+                Image scaledImage = originalImage.getScaledInstance(winwidth, winheight, Image.SCALE_SMOOTH);
+                BufferedImage resizedImage = new BufferedImage(winwidth, winheight, BufferedImage.TYPE_INT_ARGB);
+                resizedImage.getGraphics().drawImage(scaledImage, 0, 0, null);
+                ImageIcon icon = new ImageIcon(resizedImage);
+
+                //ImageIcon icon = new ImageIcon(filename);
+                JLabel label = new JLabel(icon);
+                frame.getContentPane().add(label);
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(frame, "Error loading image", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            frame.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                        frame.dispose();
+                    }
+                }
+            });
+            frame.pack();
+            frame.setLocationByPlatform(true);
+            frame.setSize(winwidth,winheight);
+            frame.setVisible(true);
+        });
+    }
+
+
     public static String getParam(String[] args, String key, String defaultValue) {
         for (int i = 0; i < args.length; i++) {
+            //if args[i] starts with ":" then return true/false
+            if (key.startsWith(":-")) {
+                if ((":"+args[i]).equals(key)) {
+                    return "1";
+                }
+            }
             if (args[i].equals(key)) {
                 return args[i + 1];
             }
@@ -109,10 +175,12 @@ public class mandelRender {
         String iterstr = getParam(args, "-m", "-1");
         String numthreadsstr = getParam(args, "-t", "-1");
         String chunksizestr = getParam(args, "-c", "-1");
+        String view = getParam(args, ":-v", "");
+        System.out.println("View:" + view);
         // check parameters and set defaults
         if (width == "-1" || height == "-1") {
             System.out.println(
-                    "Usage: MandelTest -w <width> -h <height> [-x <offsetX> -y <offsetY> -z <zoom> -o <filename(png)> -m <Z-Iterations> -t <threads> -c <chunkSize>]");
+                    "Usage: MandelTest -w <width> -h <height> [-x <offsetX> -y <offsetY> -z <zoom> -o <filename(png)> -m <Z-Iterations> -t <threads> -c <chunkSize>] -v");
             return;
         }
         int wint = Integer.parseInt(width);
@@ -142,7 +210,9 @@ public class mandelRender {
         long endProcessTime = System.nanoTime();        
         double ProcessTimeSeconds = (double) (endProcessTime - startProcessTime) / 10e8;
         System.out.println("Processing time: " + ProcessTimeSeconds + "s");
-
+        if (view.equals("1")) {
+            showpng(outfile);
+        }
     }
 
 }
