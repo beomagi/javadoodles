@@ -247,6 +247,7 @@ public class mandelRenderUI {
         ty = offsetY + (y - h / 2) / (defaultzoom * zoom);
         double xsq = xtmp * xtmp;
         double ysq = ytmp * ytmp;
+        double normalize = maxiter/255;
         while (xsq + ysq < 4 && iter < maxiter) {
             xtmp2 = xsq - ysq + tx;
             ytmp = 2 * xtmp * ytmp + ty;
@@ -265,7 +266,7 @@ public class mandelRenderUI {
             iter = Math.log((1/(xsq+ysq)))/(log2);
         }
         // set the pixel at x,y to the RGB value
-        double cycle = (maxiter) / (3.14159265359 * 100);
+        double cycle = (maxiter/normalize) / (3.14159265359 * 100);
         int cr = 128 + (int) (127 * Math.sin(cro + iter / (cycle * crr)));
         int cg = 128 + (int) (127 * Math.sin(cgo + iter / (cycle * cgr)));
         int cb = 128 + (int) (127 * Math.sin(cbo + iter / (cycle * cbr)));
@@ -275,6 +276,8 @@ public class mandelRenderUI {
 
     public static void printMandel(String outfile, int numThreads, int chunkSize) {
         System.out.println("Rendering " + w + "x" + h + " image...");
+        long startTime = System.currentTimeMillis();
+
         ExecutorService threadExecutor = Executors.newFixedThreadPool(numThreads);
         int numChunks = (int) Math.ceil((double) w * h / chunkSize);
         int[] allpixels = new int[w * h]; // main blank canvas
@@ -307,6 +310,10 @@ public class mandelRenderUI {
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
+        long endTime = System.currentTimeMillis();
+        double renderTime = (endTime-startTime)/1000.0;
+        System.out.println("Took " + renderTime + " seconds to render");
+
     }
 
     public static void main(String[] args) {
