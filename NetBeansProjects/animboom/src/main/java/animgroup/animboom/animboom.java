@@ -315,8 +315,10 @@ public class animboom {
         canvasish.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         PaintPanel.blokinit2();
         PaintPanel panel = new PaintPanel(Color.WHITE);
+        panel.setPreferredSize(new Dimension(PaintPanel.maxx, PaintPanel.maxy));//size fix for linux swing
         Container pane = canvasish.getContentPane(); // Fixing theGUI reference
         pane.add(panel);
+        canvasish.pack(); //size fix for linux swing implementation
         canvasish.setVisible(true);
     }
 }
