@@ -237,7 +237,7 @@ class PaintPanel extends JPanel implements MouseListener {
     }
     
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mousePressed(MouseEvent e) {
         int button = e.getButton();
         if (button == MouseEvent.BUTTON1){
             if (boom==1) {
@@ -291,7 +291,7 @@ class PaintPanel extends JPanel implements MouseListener {
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {}
+    public void mouseClicked(MouseEvent e) {}
 
     @Override
     public void mouseReleased(MouseEvent e) {}
