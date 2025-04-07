@@ -1,0 +1,48 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+--release
+21
+-sourcepath
+'C:/Users/beoma/Documents/NetBeansProjects/LyneFun/src/main/java;C:/Users/beoma/Documents/NetBeansProjects/LyneFun/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/beoma/Documents/NetBeansProjects/LyneFun/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'lyneFun 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'lyneFun 1.0-SNAPSHOT API'
+com.mycompany.lynefun
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\src\main\java = 1743115841450
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\generated-sources\annotations = 1743783022332
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\allclasses-index.html = 1743783024215
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\allpackages-index.html = 1743783024217
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\copy.svg = 1743783024240
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\element-list = 1743783024181
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\help-doc.html = 1743783024234
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\index-all.html = 1743783024226
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\index.html = 1743783024230
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\link.svg = 1743783024241
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\member-search-index.js = 1743783024220
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\module-search-index.js = 1743783024218
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\overview-tree.html = 1743783024206
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\package-search-index.js = 1743783024219
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\script.js = 1743783024239
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\search-page.js = 1743783024244
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\search.html = 1743783024228
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\search.js = 1743783024243
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\stylesheet.css = 1743783024237
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\tag-search-index.js = 1743783024221
+C:\Users\beoma\Documents\NetBeansProjects\LyneFun\target\reports\apidocs\type-search-index.js = 1743783024220
